@@ -37,8 +37,6 @@ public:
 
   friend Vector operator/(const Vector &, double);
 
-  friend Vector operator/(double, const Vector &);
-
   friend double operator^(const Vector &, const Vector &);
 
   Vector operator-() const;
