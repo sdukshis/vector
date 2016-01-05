@@ -5,7 +5,6 @@
 Vector::Vector() {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] = 0;
-        
     }
 }
 
