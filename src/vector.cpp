@@ -20,7 +20,7 @@ Vector::Vector(const Vector &B) {
     }
 }
 
-Vector & Vector::operator=(const Vector &B) {
+Vector &Vector::operator=(const Vector &B) {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] = B.coords_[i];
     }
@@ -31,36 +31,32 @@ double Vector::operator[](unsigned long i) const {
     return coords_[i];
 }
 
-double & Vector::operator[](unsigned long i) {
+double &Vector::operator[](unsigned long i) {
     return coords_[i];
 }
 
-Vector & Vector::operator+=(const Vector &B) {
+Vector &Vector::operator+=(const Vector &B) {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] += B.coords_[i];
     }
     return *this;
 }
 
-Vector & Vector::operator-=(const Vector &B) {
+Vector &Vector::operator-=(const Vector &B) {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] -= B.coords_[i];
     }
     return *this;
 }
 
-Vector & Vector::operator*=(double B) {
+Vector &Vector::operator*=(double B) {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] *= B;
     }
     return *this;
 }
 
-Vector & Vector::operator/=(double B) {
-    if (B == 0) {
-        printf("error, division 0");
-        *this;
-    }
+Vector &Vector::operator/=(double B) {
     for(unsigned long i = 0; i < n; i++) {
         coords_[i] /= B;
     }
@@ -77,68 +73,38 @@ bool operator==(const Vector &left, const Vector &right) {
 }
 
 Vector operator+(const Vector &left, const Vector &right) {
-    Vector res;
-    for(unsigned long i = 0; i < Vector::n; i++) {
-        res.coords_[i] = left.coords_[i] + right.coords_[i];
-    }
-    return res;
+    return Vector(left) += right;
 }
 
 Vector operator-(const Vector &left, const Vector &right) {
-    Vector res;
-    for(unsigned long i = 0; i < Vector::n; i++) {
-        res.coords_[i] = left.coords_[i] - right.coords_[i];
-    }
-    return res;
+    return Vector(left) -= right;
 }
 
 Vector operator*(const Vector &left, double A) {
-    Vector res;
-    for(unsigned long i = 0; i < Vector::n; i++) {
-        res.coords_[i] = left.coords_[i] * A;
-    }
-    return res;
+    return Vector(left) *= A;
 }
 
 Vector operator*(double A, const Vector &right) {
-    Vector res;
-    for(unsigned long i = 0; i < Vector::n; i++) {
-        res.coords_[i] = A * right.coords_[i];
-    }
-    return res;
+    return right * A;
 }
 
 Vector operator/(const Vector &left, double A) {
-    if (A == 0) {
-        printf("error, division 0\n");
-    }
-    Vector res;
-    for(unsigned long i = 0; i < Vector::n; i++) {
-        res.coords_[i] = left.coords_[i]/A;
-    }
-    return res;
+    return Vector(left) /= A;
 }
 
 double operator^(const Vector &left, const Vector &right) {
     double dot = 0;
     for(unsigned long i = 0; i < Vector::n; i++) {
-        dot = dot + left.coords_[i]*right.coords_[i];
+        dot += left.coords_[i]*right.coords_[i];
     }
     return dot;
 }
 
 Vector Vector::operator-() const {
-    Vector res;
-    for(unsigned long i = 0; i < n; i++) {
-        res[i] = -1*coords_[i];
-    }
-    return res;
+    return Vector(*this) *= -1;
 }
 
 bool operator!=(const Vector &left, const Vector &right) {
-    if (left == right) {
-        return false;
-    }
-    return true;
+    return !(left == right);
 }
 
