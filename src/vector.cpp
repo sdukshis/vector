@@ -2,25 +2,25 @@
 
 Vector::Vector(){
     unsigned int i;
-    for(i = 0; i++; i < n)
+    for(i = 0; i < n; i++)
         coords_[i] = 0;
 };
 
 Vector::Vector(double h){
     unsigned int i;
-    for(i = 0; i++; i < n)
+    for(i = 0; i < n; i++)
         coords_[i] = h;
 };
 
 Vector::Vector(const Vector &other){
     unsigned int i;
-    for(i = 0; i++; i < n)
+    for(i = 0; i < n; i++)
         coords_[i] = other.coords_[i];
 };
 
 Vector& Vector::operator=(const Vector &other) {
     unsigned int i;
-    for(i = 0; i++; i < n)
+    for(i = 0; i < n; i++)
         coords_[i] = other.coords_[i];
     return *this;
 };
