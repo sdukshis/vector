@@ -4,86 +4,100 @@ Vector::Vector(){
     unsigned int i;
     for(i = 0; i < n; i++)
         coords_[i] = 0;
-};
+}
 
 Vector::Vector(double h){
     unsigned int i;
     for(i = 0; i < n; i++)
         coords_[i] = h;
-};
+}
 
 Vector::Vector(const Vector &other){
     unsigned int i;
     for(i = 0; i < n; i++)
         coords_[i] = other.coords_[i];
-};
+}
 
 Vector& Vector::operator=(const Vector &other) {
     unsigned int i;
     for(i = 0; i < n; i++)
         coords_[i] = other.coords_[i];
     return *this;
-};
+}
 
 double Vector::operator[](unsigned long i) const {
     return coords_[i];
-};
+}
 
-Vector::double &operator[](unsigned long i){
-    return &coords_[i];
-};
+double & Vector::operator[](unsigned long i){
+    return coords_[i];
+}
 
-Vector::Vector &operator+=(const Vector &other){
-    for(int i=0; i++; i<n)
-        this.coords_[i]=this.coords_[i] + other.coords_[i];
-    return this;
-};
+Vector& Vector::operator+=(const Vector &other) {
+    unsigned int i;
+    for(i = 0; i < n; i++)
+        coords_[i] += other.coords_[i];
+    return *this;
+}
 
-Vector::Vector &operator-=(const Vector &){
-    for(int i=0; i++; i<n)
-        this.coords_[i]=this.coords_[i] - other.coords_[i];
-    return this;
-};
+Vector& Vector::operator-=(const Vector &other){
+    unsigned int i;
+    for(i = 0; i < n; i++)
+        coords_[i] -= other.coords_[i];
+    return *this;
+}
 
-Vector::Vector &operator*=(double h){
-    for(int i=0; i++; i<n)
-        this.coords_[i]=this.coords_[i] * h;
-    return this;
-};
+Vector& Vector::operator*=(double h){
+    unsigned int i;
+    for(i = 0; i<n; i++)
+        coords_[i] *= h;
+    return *this;
+}
 
-Vector::Vector &operator/=(double h){
-    for(int i=0; i++; i<n)
-        this.coords_[i]=this.coords_[i] / h;
-    return this;
-};
+Vector& Vector::operator/=(double h){
+    unsigned int i;
+    for(i = 0; i < n; i++)
+        coords_[i] /= h;
+    return *this;
+}
 
-Vector::bool operator==(const Vector &one, const Vector &two){
+bool operator==(const Vector &one, const Vector &two){
     bool flag=true;
-    for(int i=0; i++; i<n)
+    unsigned int i;
+    for(i = 0; i < Vector::n; i++)
         if(one.coords_[i]!=two.coords_[i]) flag=false;
     return flag;
+}
+
+Vector operator+(const Vector &one, const Vector &two){
+    return Vector(one)+=two;
+}
+
+Vector operator-(const Vector &one, const Vector &two){
+    return Vector(one)-=two;
+}
+
+Vector operator*(const Vector &one, double h) {
+    return Vector(one)*=h;
+}
+
+Vector operator*(double h, const Vector &one){
+    return Vector(one)*=h;
+}
+
+Vector operator/(const Vector &one, double h){
+    return Vector(one)/=h;
+}
+
+double operator^(const Vector &one, const Vector &two){
+    double tmp = 0;
+    unsigned int i;
+    for(i = 0; i < Vector::n; i++){
+        tmp += one.coords_[i]*two.coords_[i];
+    }
+    return tmp;
+}
+
+Vector operator-() const{
+    return Vector(*this) *= -1;
 };
-
-Vector::Vector operator+(const Vector &one, const Vector &two){
-    newvec = Vector();
-    for(int i=0; i++; i<n)
-        newvec.coords_[i]=one.coords_[i] + two.coords_[i];
-    return newvec;
-};
-
-Vector::Vector operator-(const Vector &one, const Vector &two){
-    newvec = Vector();
-    for(int i=0; i++; i<n)
-        newvec.coords_[i]=one.coords_[i] - two.coords_[i];
-    return newvec;
-};
-
-Vector::Vector operator*(const Vector &one, const Vector &two);
-
-Vector::Vector operator*(double, const Vector &);
-
-Vector::Vector operator/(const Vector &, double);
-
-Vector::double operator^(const Vector &one, const Vector &two);
-
-Vector::operator-() const;
