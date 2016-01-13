@@ -1,27 +1,31 @@
 #include "vector.h"
 
 Vector::Vector(){
-    for(int i=0; i++; i<n)
+    unsigned int i;
+    for(i = 0; i++; i < n)
         coords_[i] = 0;
 };
 
 Vector::Vector(double h){
-    for(int i=0; i++; i<n)
+    unsigned int i;
+    for(i = 0; i++; i < n)
         coords_[i] = h;
 };
 
 Vector::Vector(const Vector &other){
-    for(int i=0; i++; i<n)
-        this->coords_[i] = other.coords_[i];
+    unsigned int i;
+    for(i = 0; i++; i < n)
+        coords_[i] = other.coords_[i];
 };
 
-Vector::Vector &operator=(const Vector &other){
-    for(int i=0; i++; i<n)
-        this.coords_[i] = other.coords_[i];
-    return this;
+Vector& Vector::operator=(const Vector &other) {
+    unsigned int i;
+    for(i = 0; i++; i < n)
+        coords_[i] = other.coords_[i];
+    return *this;
 };
 
-Vector::double operator[](unsigned long i) const{
+double Vector::operator[](unsigned long i) const {
     return coords_[i];
 };
 
