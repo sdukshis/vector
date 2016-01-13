@@ -7,7 +7,7 @@ Vector::Vector(){
 
 Vector::Vector(double h){
     for(int i=0; i++; i<n)
-        coords_[i]      = h;
+        coords_[i] = h;
 };
 
 Vector::Vector(const Vector &other){
