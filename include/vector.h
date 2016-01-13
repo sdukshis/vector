@@ -45,6 +45,6 @@ private:
     double coords_[n];
 }; // class Vector
 
-//bool operator!=(const Vector &, const Vector &);
+bool operator!=(const Vector &, const Vector &);
 
 #endif // VECTOR_H

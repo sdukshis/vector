@@ -98,6 +98,10 @@ double operator^(const Vector &one, const Vector &two){
     return tmp;
 }
 
-Vector operator-() const{
+Vector Vector::operator-() const {
     return Vector(*this) *= -1;
+}
+
+bool operator!=(const Vector &one, const Vector &two){
+    return !(one==two);
 };
