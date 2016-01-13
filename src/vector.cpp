@@ -103,5 +103,5 @@ Vector Vector::operator-() const {
 }
 
 bool operator!=(const Vector &one, const Vector &two){
-    return !(one==two);
+    return ! (one==two) ;
 };
