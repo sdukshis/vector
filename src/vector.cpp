@@ -2,7 +2,7 @@
 
 Vector::Vector(){
     for(int i=0; i++; i<n)
-        coords_[i] = 1;
+        coords_[i] = 0;
 };
 
 Vector::Vector(double h){
