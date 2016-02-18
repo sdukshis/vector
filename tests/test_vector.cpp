@@ -179,10 +179,10 @@ TEST_CASE("Equal operator") {
         Vector v{2}, w{2};
         REQUIRE(v == w);
     }
-    SECTION("Not equal") {
-        Vector v{1}, w{2};
-        REQUIRE(v != w);
-    }
+//    SECTION("Not equal") {
+//        Vector v{1}, w{2};
+//        REQUIRE(v != w);
+//    }
 }
 
 TEST_CASE("Dot product") {

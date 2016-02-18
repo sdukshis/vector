@@ -86,6 +86,10 @@ Vector operator*(const Vector &op, double a) {
     Vector op1(op);
     return op1 *= a;
 }
+Vector operator*(double a, const Vector &op){
+    Vector op1(op);
+    return op1 *= a;
+}
 
 Vector operator/(const Vector &op1, double a) {
     Vector op(op1);
@@ -105,10 +109,11 @@ Vector Vector::operator-() const {
     for (unsigned int i = 0; i < n; ++i) {
         op.coords_[i] = (-1) * coords_[i];
     }
+    return op;
 }
 
-bool operator!=(const Vector &op1, const Vector &op2) {
-    //if (op1 == op2) { return false; }
-    //return true;
-    return !(op1 == op2 );
-}
+//bool operator!=(const Vector &op1, const Vector &op2) {
+//    //if (op1 == op2) { return false; }
+//    //return true;
+//    return !(op1 == op2 );
+//}
