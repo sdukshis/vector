@@ -67,7 +67,7 @@ bool operator==(const Vector &op1, const Vector &op2) {
         if (op1.coords_[i] != op2.coords_[i]) { return false; }
     }
     return true;
-}
+} 
 
 Vector operator+(const Vector &op1, const Vector &op2) {
     Vector op3;
