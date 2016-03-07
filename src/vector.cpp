@@ -50,31 +50,27 @@ Vector &Vector::operator-=(const Vector &op) {
 
 Vector &Vector::operator*=(double a) {
     for (unsigned int i = 0; i < n; ++i) {
-        coords_[i] = coords_[i] * a;
+        coords_[i] *= a;
     }
     return *this;
 }
 
 Vector &Vector::operator/=(double a) {
     for (unsigned int i = 0; i < n; ++i) {
-        coords_[i] = coords_[i] / a;
+        coords_[i] /= a;
     }
     return *this;
 }
 
 bool operator==(const Vector &op1, const Vector &op2) {
-    for (unsigned int i = 0; i < Vector::n; ++i) {
+    for (unsigned int i = 0; i < Vector::n; i++) {
         if (op1.coords_[i] != op2.coords_[i]) { return false; }
     }
     return true;
 }
 
 Vector operator+(const Vector &op1, const Vector &op2) {
-    Vector op3;
-    for (unsigned int i = 0; i < Vector::n; ++i) {
-        op3.coords_[i] = op1.coords_[i] + op2.coords_[i];
-    }
-    return op3;
+    return Vector (op1)+=op2;
 }
 
 Vector operator-(const Vector &op1, const Vector &op2) {
@@ -105,15 +101,10 @@ double operator^(const Vector &op1, const Vector &op2) {
 }
 
 Vector Vector::operator-() const {
-    Vector op;
-    for (unsigned int i = 0; i < n; ++i) {
-        op.coords_[i] = (-1) * coords_[i];
-    }
-    return op;
+    return Vector(*this) *= (-1);
 }
 
-//bool operator!=(const Vector &op1, const Vector &op2) {
-//    //if (op1 == op2) { return false; }
-//    //return true;
-//    return !(op1 == op2 );
-//}
+bool operator!=(const Vector &op1, const Vector &op2) {
+    if (op1 == op2) { return false; }
+    return true;
+}
