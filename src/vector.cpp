@@ -64,18 +64,18 @@ Vector &Vector::operator/=(double a) {
 
 bool operator==(const Vector &op1, const Vector &op2) {
     for (unsigned int i = 0; i < Vector::n; i++) {
-        if (op1.coords_[i] != op2.coords_[i]) { return false; }
+        if (op1.coords_[i] != op2.coords_[i]) {
+            return false; }
     }
     return true;
 }
 
 Vector operator+(const Vector &op1, const Vector &op2) {
-    return Vector (op1)+=op2;
+    return Vector(op1)+=op2;
 }
 
 Vector operator-(const Vector &op1, const Vector &op2) {
-    Vector op3(op1);
-    return op3 -= op2;
+    return Vector(op1)-=op2;
 }
 
 Vector operator*(const Vector &op, double a) {
@@ -83,8 +83,7 @@ Vector operator*(const Vector &op, double a) {
     return op1 *= a;
 }
 Vector operator*(double a, const Vector &op){
-    Vector op1(op);
-    return op1 *= a;
+    return Vector(op) *= a;
 }
 
 Vector operator/(const Vector &op1, double a) {
@@ -101,10 +100,10 @@ double operator^(const Vector &op1, const Vector &op2) {
 }
 
 Vector Vector::operator-() const {
-    return Vector(*this) *= (-1);
+    return Vector(*this) *= -1;
 }
 
 bool operator!=(const Vector &op1, const Vector &op2) {
-    if (op1 == op2) { return false; }
-    return true;
+    return !(op1 == op2);
+
 }
