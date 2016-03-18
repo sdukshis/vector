@@ -79,16 +79,14 @@ Vector operator-(const Vector &op1, const Vector &op2) {
 }
 
 Vector operator*(const Vector &op, double a) {
-    Vector op1(op);
-    return op1 *= a;
+    return Vector(op) *= a;
 }
 Vector operator*(double a, const Vector &op){
     return Vector(op) *= a;
 }
 
 Vector operator/(const Vector &op1, double a) {
-    Vector op(op1);
-    return op /= a;
+    return Vector(op1) /= a;
 }
 
 double operator^(const Vector &op1, const Vector &op2) {
