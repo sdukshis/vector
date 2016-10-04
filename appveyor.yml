@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-clone_folder: c:\dev\complex
+clone_folder: c:\block\vector2.0
 
 build:
 
@@ -8,7 +8,7 @@ install:
     - git submodule -q update --init --recursive
 
 build_script:
-    - cd c:\dev\complex
+    - cd c:\block\vector2.0
     - md build
     - cd build
     - cmake -G"Visual Studio 14 2015 Win64" ..
