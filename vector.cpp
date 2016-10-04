@@ -4,19 +4,19 @@ using namespace std;
 
 Vector:: Vector()
 {
-    for(int i=0;i<n;i++)
+    for(unsigned int i=0;i<n;i++)
         vec[i]=0;
 }
 
 Vector::Vector(double k)
 {
-       for(int i=0;i<n;i++)
+       for(unsigned int i=0;i<n;i++)
         vec[i]=k;
 }
 
 Vector:: Vector(const Vector &p)
 {
-    for(int i=0;i<n;i++)
+    for(unsigned int i=0;i<n;i++)
        vec[i]=p.vec[i];
 }
 
@@ -24,7 +24,7 @@ Vector& Vector:: operator=(const Vector &p)
 {
     if(this!=&p)
         {
-            for(int i=0;i<n;i++)
+            for(unsigned int i=0;i<n;i++)
               vec[i]=p.vec[i];
         }
     return *this;
@@ -44,21 +44,21 @@ double& Vector:: operator[](unsigned long i)
 
 Vector& Vector:: operator+=(const Vector &p)
 {
-    for(int i=0;i<n;i++)
+    for(unsigned int i=0;i<n;i++)
       vec[i]+=p.vec[i];
     return *this;
 }
 
 Vector& Vector:: operator-=(const Vector &p)
 {
-    for(int i=0;i<n;i++)
+    for(unsigned int i=0;i<n;i++)
       vec[i]-=p.vec[i];
     return *this;
 }
 
 Vector& Vector:: operator*=(double k)
 {
-    for(int i=0;i<n;i++)
+    for(unsigned int i=0;i<n;i++)
         vec[i]*=k;
     return *this;
 }
@@ -67,7 +67,7 @@ Vector& Vector:: operator/=(double k)
 {
     if(k)
         {
-            for(int i=0;i<n;i++)
+            for(unsigned int i=0;i<n;i++)
                vec[i]/=k;
         }else throw "division by zero not impossible";
     return *this;
@@ -75,7 +75,7 @@ Vector& Vector:: operator/=(double k)
 
 bool operator==(const Vector &p1, const Vector &p2)
 {
-  for(int i=0;i<p1.n;i++)
+  for(unsigned int i=0;i<p1.n;i++)
     if(p1.vec[i]!=p2.vec[i])
        return false;
   else
@@ -84,7 +84,7 @@ bool operator==(const Vector &p1, const Vector &p2)
 
 ostream &operator<<(ostream &os,const Vector &p)
 {
-   for(int i=0;i<p.n;i++)
+   for(unsigned int i=0;i<p.n;i++)
         os<<p.vec[i]<<' ';
    return os;
 }
@@ -122,7 +122,7 @@ Vector operator/(const Vector &p, double k)
 double operator^(const Vector &p1, const Vector &p2)
 {
    double sum=0;
-   for(int i=0;i<p1.n;i++)
+   for(unsigned int i=0;i<p1.n;i++)
      sum+=p1.vec[i]*p2.vec[i];
    return sum;
 }
@@ -131,3 +131,4 @@ bool operator!=(const Vector &p1, const Vector &p2)
 {
    return !(p1==p2);
 }
+
