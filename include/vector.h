@@ -3,48 +3,49 @@
 
 class Vector {
 public:
-  const static unsigned long n = 3;
+      const static unsigned long n = 3;
+  
+    Vector();
 
-  Vector();
+    explicit Vector(double x);
 
-  explicit Vector(double);
+    Vector(const Vector &q);
 
-  Vector(const Vector &);
+    Vector &operator=(const Vector &q);
 
-  Vector &operator=(const Vector &);
+    double operator[](unsigned long i) const;
 
-  double operator[](unsigned long i) const;
+    double &operator[](unsigned long i);
 
-  double &operator[](unsigned long i);
+    Vector &operator+=(const Vector &q);
 
-  Vector &operator+=(const Vector &);
+    Vector &operator-=(const Vector &q);
 
-  Vector &operator-=(const Vector &);
+    Vector &operator*=(double x);
 
-  Vector &operator*=(double);
+    Vector &operator/=(double x);
 
-  Vector &operator/=(double);
+    friend bool operator==(const Vector &r, const Vector &w);
 
-  friend bool operator==(const Vector &, const Vector &);
+    friend Vector operator+(const Vector &r, const Vector &w);
 
-  friend Vector operator+(const Vector &, const Vector &);
+    friend Vector operator-(const Vector &r, const Vector &w);
 
-  friend Vector operator-(const Vector &, const Vector &);
+    friend Vector operator*(const Vector &r, double x);
 
-  friend Vector operator*(const Vector &, double);
+    friend Vector operator*(double x, const Vector &r);
 
-  friend Vector operator*(double, const Vector &);
+    friend Vector operator/(const Vector &r, double x);
 
-  friend Vector operator/(const Vector &, double);
+    friend double operator^(const Vector &r, const Vector &w);
 
-  friend double operator^(const Vector &, const Vector &);
-
-  Vector operator-() const;
+    Vector operator-() const;
 
 private:
-  double coords_[n];
+    double coords_[n];
 }; // class Vector
 
-bool operator!=(const Vector &, const Vector &);
+bool operator!=(const Vector &r, const Vector &w);
 
 #endif // VECTOR_H
+
