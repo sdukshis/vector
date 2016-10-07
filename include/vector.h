@@ -3,8 +3,8 @@
 
 class Vector {
 public:
-    const static unsigned long n = 3;
-
+      const static unsigned long n = 3;
+  
     Vector();
 
     explicit Vector(double x);
