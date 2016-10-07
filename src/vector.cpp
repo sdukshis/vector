@@ -1,6 +1,6 @@
 #include "vector.h"
 
-Vector::Vector() {
+   Vector::Vector() {
     for (unsigned int i = 0; i < n; ++i) {
         coords_[i] = 0;
     }
